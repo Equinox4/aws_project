@@ -1,7 +1,8 @@
 # aws_project
 Petit projet utilisant aws et Vue.js
 
-fonctionnalité :
+Fonctionnalités :
+
 * Envoyer un message ( balisage message)
   * Système de salons ( général et perso)
   * Création de salons
