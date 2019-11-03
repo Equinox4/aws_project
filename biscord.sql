@@ -23,18 +23,20 @@ ALTER TABLE user ADD CONSTRAINT pk_user PRIMARY KEY (id_user);
 
 CREATE TABLE server (
     id_server serial,
+    uuid_server uuid UNIQUE NOT NULL,
     server_name varchar(64) NOT NULL,
     server_ip inet NOT NULL,
     port smallint NOT NULL
 );
 
+ALTER TABLE server ALTER COLUMN uuid_server SET DEFAULT uuid_generate_v4();
 ALTER TABLE server ADD CONSTRAINT pk_server PRIMARY KEY (id_server);
 
 -- TABLE user_server --
 
 CREATE TABLE user_server (
-    id_server integer,
-    id_user integer
+    id_server integer NOT NULL,
+    id_user integer NOT NULL
 );
 
 ALTER TABLE user_server ADD CONSTRAINT pk_user_server PRIMARY KEY (id_server, id_user);
@@ -45,17 +47,19 @@ ALTER TABLE user_server ADD CONSTRAINT fk_user_server_server FOREIGN KEY (id_ser
 
 CREATE TABLE channel (
     id_channel serial,
-    channel_name varchar(64),
-    id_server integer
+    uuid_channel uuid UNIQUE NOT NULL,
+    channel_name varchar(64) NOT NULL,
+    id_server integer NOT NULL
 );
 
+ALTER TABLE channel ALTER COLUMN uuid_channel SET DEFAULT uuid_generate_v4();
 ALTER TABLE channel ADD CONSTRAINT pk_channel PRIMARY KEY (id_channel);
 
 -- TABLE user_channel --
 
 CREATE TABLE user_channel (
-    id_channel integer,
-    id_user integer
+    id_channel integer NOT NULL,
+    id_user integer NOT NULL
 );
 
 ALTER TABLE user_channel ADD CONSTRAINT pk_user_channel PRIMARY KEY (id_channel, id_user);
