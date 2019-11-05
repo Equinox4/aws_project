@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS server CASCADE;
 DROP TABLE IF EXISTS channel CASCADE;
 DROP TABLE IF EXISTS user_channel CASCADE;
 DROP TABLE IF EXISTS user_server CASCADE;
+DROP TABLE IF EXISTS message CASCADE;
 
 -- UUID EXTENSION --
 
@@ -77,3 +78,19 @@ CREATE TABLE user_channel (
 ALTER TABLE user_channel ADD CONSTRAINT pk_user_channel PRIMARY KEY (id_channel, id_user);
 ALTER TABLE user_channel ADD CONSTRAINT fk_user_channel_user FOREIGN KEY (id_user) REFERENCES biscord_user(id_user);
 ALTER TABLE user_channel ADD CONSTRAINT fk_user_channel_channel FOREIGN KEY (id_channel) REFERENCES channel(id_channel);
+
+-- TABLE message --
+
+CREATE TABLE message (
+    id_message serial,
+    uuid_message uuid NOT NULL,
+    id_channel integer NOT NULL,
+    sent_at timestamp NOT NULL,
+    id_user integer NOT NULL,
+    content varchar(4096) NOT NULL
+);
+
+ALTER TABLE message ALTER COLUMN sent_at SET DEFAULT to_char(current_timestamp, 'YYYY-MM-DD"T"HH24:MI:SSOF')::timestamp;
+ALTER TABLE message ADD CONSTRAINT pk_message PRIMARY KEY (id_message);
+ALTER TABLE message ADD CONSTRAINT fk_message_channel FOREIGN KEY (id_channel) REFERENCES channel(id_channel);
+ALTER TABLE message ADD CONSTRAINT fk_message_user FOREIGN KEY (id_user) REFERENCES biscord_user(id_user);
