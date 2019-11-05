@@ -22,11 +22,11 @@ CREATE TABLE biscord_user (
     password varchar NOT NULL,
     uuid_user uuid UNIQUE NOT NULL,
     couleur varchar(16),
-    created_at timestamp NOT NULL
+    created_at text NOT NULL
 );
 
 ALTER TABLE biscord_user ALTER COLUMN uuid_user SET DEFAULT uuid_generate_v4();
-ALTER TABLE biscord_user ALTER COLUMN created_at SET DEFAULT to_char(current_timestamp, 'YYYY-MM-DD"T"HH24:MI:SSOF')::timestamp;
+ALTER TABLE biscord_user ALTER COLUMN created_at SET DEFAULT to_char(current_timestamp, 'YYYY-MM-DD"T"HH24:MI:SSOF');
 
 ALTER TABLE biscord_user ADD CONSTRAINT pk_biscord_user PRIMARY KEY (id_user);
 
@@ -38,11 +38,11 @@ CREATE TABLE server (
     server_name varchar(64) NOT NULL,
     server_ip inet NOT NULL,
     port smallint NOT NULL,
-    created_at timestamp NOT NULL
+    created_at text NOT NULL
 );
 
 ALTER TABLE server ALTER COLUMN uuid_server SET DEFAULT uuid_generate_v4();
-ALTER TABLE server ALTER COLUMN created_at SET DEFAULT to_char(current_timestamp, 'YYYY-MM-DD"T"HH24:MI:SSOF')::timestamp;
+ALTER TABLE server ALTER COLUMN created_at SET DEFAULT to_char(current_timestamp, 'YYYY-MM-DD"T"HH24:MI:SSOF');
 ALTER TABLE server ADD CONSTRAINT pk_server PRIMARY KEY (id_server);
 
 -- TABLE user_server --
@@ -85,12 +85,23 @@ CREATE TABLE message (
     id_message serial,
     uuid_message uuid NOT NULL,
     id_channel integer NOT NULL,
-    sent_at timestamp NOT NULL,
+    sent_at text NOT NULL,
     id_user integer NOT NULL,
     content varchar(4096) NOT NULL
 );
 
-ALTER TABLE message ALTER COLUMN sent_at SET DEFAULT to_char(current_timestamp, 'YYYY-MM-DD"T"HH24:MI:SSOF')::timestamp;
+ALTER TABLE message ALTER COLUMN sent_at SET DEFAULT to_char(current_timestamp, 'YYYY-MM-DD"T"HH24:MI:SSOF');
 ALTER TABLE message ADD CONSTRAINT pk_message PRIMARY KEY (id_message);
 ALTER TABLE message ADD CONSTRAINT fk_message_channel FOREIGN KEY (id_channel) REFERENCES channel(id_channel);
 ALTER TABLE message ADD CONSTRAINT fk_message_user FOREIGN KEY (id_user) REFERENCES biscord_user(id_user);
+
+-- GRANT --
+REVOKE ALL PRIVILEGES ON SCHEMA public from public;
+
+ GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO "www-data";
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE biscord_user TO "www-data";
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE server TO "www-data";
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE channel TO "www-data";
+GRANT SELECT, INSERT, DELETE ON TABLE user_channel TO "www-data";
+GRANT SELECT, INSERT, DELETE ON TABLE user_server TO "www-data";
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE message TO "www-data";
