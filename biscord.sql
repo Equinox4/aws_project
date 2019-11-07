@@ -90,6 +90,7 @@ CREATE TABLE message (
     content varchar(4096) NOT NULL
 );
 
+ALTER TABLE message ALTER COLUMN uuid_message SET DEFAULT uuid_generate_v4();
 ALTER TABLE message ALTER COLUMN sent_at SET DEFAULT to_char(current_timestamp, 'YYYY-MM-DD"T"HH24:MI:SSOF');
 ALTER TABLE message ADD CONSTRAINT pk_message PRIMARY KEY (id_message);
 ALTER TABLE message ADD CONSTRAINT fk_message_channel FOREIGN KEY (id_channel) REFERENCES channel(id_channel);
@@ -98,7 +99,7 @@ ALTER TABLE message ADD CONSTRAINT fk_message_user FOREIGN KEY (id_user) REFEREN
 -- GRANT --
 REVOKE ALL PRIVILEGES ON SCHEMA public from public;
 
- GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO "www-data";
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO "www-data";
 GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE biscord_user TO "www-data";
 GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE server TO "www-data";
 GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE channel TO "www-data";
