@@ -4,7 +4,9 @@ Petit projet utilisant aws et Vue.js
 Fonctionnalités :
 
 - [X] Créer un utilisateur (lambda)
-- [ ] Envoyer un message ( balisage message)
+- [X] Envoyer un message (lambda)
+- [X] Modifier un message (lambda)
+- [X] Suprimer un message (lambda)
     - [ ] Système de salons ( général et perso)
     - [ ] Création de salons
 - [ ] Général en premier les secondaires passera à la fin
@@ -13,5 +15,4 @@ Fonctionnalités :
 - [ ] Envoie Smiley
 - [ ] Système de couleur pseudo
 - [ ] Système de rôle
-- [ ] Supression de message
 - [ ] Système de commande
