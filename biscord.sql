@@ -87,11 +87,13 @@ CREATE TABLE message (
     id_channel integer NOT NULL,
     sent_at text NOT NULL,
     id_user integer NOT NULL,
-    content varchar(4096) NOT NULL
+    content varchar(4096) NOT NULL,
+    edited boolean NOT NULL
 );
 
 ALTER TABLE message ALTER COLUMN uuid_message SET DEFAULT uuid_generate_v4();
 ALTER TABLE message ALTER COLUMN sent_at SET DEFAULT to_char(current_timestamp, 'YYYY-MM-DD"T"HH24:MI:SSOF');
+ALTER TABLE message ALTER COLUMN edited SET DEFAULT false;
 ALTER TABLE message ADD CONSTRAINT pk_message PRIMARY KEY (id_message);
 ALTER TABLE message ADD CONSTRAINT fk_message_channel FOREIGN KEY (id_channel) REFERENCES channel(id_channel);
 ALTER TABLE message ADD CONSTRAINT fk_message_user FOREIGN KEY (id_user) REFERENCES biscord_user(id_user);
