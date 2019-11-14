@@ -21,7 +21,7 @@ CREATE TABLE biscord_user (
     email varchar(64) NOT NULL,
     password varchar NOT NULL,
     uuid_user uuid UNIQUE NOT NULL,
-    couleur varchar(16),
+    color varchar(16),
     created_at text NOT NULL
 );
 
@@ -37,7 +37,7 @@ CREATE TABLE server (
     uuid_server uuid UNIQUE NOT NULL,
     server_name varchar(64) NOT NULL,
     server_ip inet NOT NULL,
-    port smallint NOT NULL,
+    server_port smallint NOT NULL,
     created_at text NOT NULL
 );
 
