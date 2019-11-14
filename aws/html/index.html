@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="../style.css" />
+		<script src="../js/jquery.js"></script>
+		<script src="../js/login.js"></script>
+	</head>
+
+
+	<body>
+
+		<form method="post" id="connexion_index" action="" name="connexion_index"> <!-- URL de la lamda dans l'action -->
+			<div class="container padding-b-170">
+			    <h1>Biscord</h1>
+			    <p class="text-align-center">Entrez votre pseudo et mot de passe pour vous connecter.</p>
+			    <hr class="hr">
+			    <div>
+				    <div class="display-grid justify-align-center">
+					    <label for="pseudo"><b>pseudo</b></label>
+					    <input type="text" placeholder="Entrez votre pseudo" name="pseudo" id="pseudo" required>
+
+					    <label for="password"><b>password</b></label>
+					    <input type="text" placeholder="Entrez votre mot de passe" name="password" id="password" required>
+				    </div>
+				    <div class="display-grid justify-align-center">
+				    	<button type="button" class="registerbtn" id="submit">Se connecter</button>
+				    </div>
+			    </div>
+			    <hr class="hr">
+			    <div class="container signin">
+    				<p>Pas encore de compte? <a href="enregistrer.html">Créer un compte</a>.</p>
+  				</div>
+			<div>
+		</form>
+	</body>
+</html>

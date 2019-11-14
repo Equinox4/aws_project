@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="../style.css" />
+		<script src="../js/jquery.js"></script>
+	 	<script src="../js/subscribe.js"></script>
+	</head>
+
+<body>
+
+	<form id="enregistrer_informations" name="enregistrer_informations">
+        <!-- URL de la lamda dans l'action -->
+  <div class="container">
+    <h1>S'enregistrer</h1>
+    <p class="text-align-center">Remplissez ce formulaire afin de créer votre compte</p>
+    <hr class="hr">
+
+    <div class="display-grid justify-align-center">
+        <label for="nom"><b>Nom</b></label>
+        <input type="text" placeholder="Entrez votre nom" name="nom" id="nom" required>
+
+        <label for="prenom"><b>Prénom</b></label>
+        <input type="text" placeholder="Entrez votre prénom" name="prenom"  id="prenom" required>
+
+        <label for="pseudo"><b>Pseudo</b></label>
+        <input type="text" placeholder="Entrez votre mail" name="pseudo" id="pseudo" required>
+
+        <label for="email"><b>Mail</b></label>
+        <input type="text" placeholder="Entrez votre mail" name="email" id="email" required>
+
+        <label for="couleur"><b>Couleur</b></label>
+        <input type="color" value="#ff0000" name="couleur" id="colorpicker">
+    	</br></br>
+
+        <label for="psw"><b>Mot de passe</b></label>
+        <input type="password" placeholder="Entrez votre mot de passe" name="psw" required>
+
+        <label for="psw-repeat"><b>Confirmation du mot de passe</b></label>
+        <input type="password" placeholder="Confirmer votre mot de passe" name="psw-repeat" required>
+    </div>
+    <hr class="hr">
+
+    <div class="display-grid justify-align-center">
+        <button type="submit" class="registerbtn">Créer votre compte</button>
+    </div>
+  </div>
+
+  <div class="container signin">
+    <p>Déja un compte? <a href="index.html">Connectez vous</a>.</p>
+  </div>
+</form>
+
+</body>
+</html>
+
+<script src="../spectrum/spectrum.js"></script>
+<script>
+	$("#colorpicker").spectrum({color:"#000",containerClassName:"fond",replacerClassName:"fond-input",showInput:true,className:"palette",showInitial:true,showPalette:true,showSelectionPalette:true,maxPaletteSize:10,preferredFormat:"hex",move:function(e){},show:function(){},beforeShow:function(){},hide:function(){},change:function(){},palette:[["#000000","#111111","#2d2d2d","#434343","#5b5b5b","#737373","#8b8b8b","#a2a2a2","#b9b9b9","#d0d0d0","#e6e6e6","#ffffff"],["#7f7f00","#bfbf00","#ffff00","#ffff40","#ffff80","#ffffbf","#525330","#898a49","#aea945","#c3be71","#e0dcaa","#fcfae1"],["#407f00","#60bf00","#80ff00","#a0ff40","#c0ff80","#dfffbf","#3b5738","#668f5a","#7f9757","#8a9b55","#b7c296","#e6ebd5"],["#007f40","#00bf60","#00ff80","#40ffa0","#80ffc0","#bfffdf","#033d21","#438059","#7fa37c","#8dae94","#acc6b5","#ddebe2"],["#007f7f","#00bfbf","#00ffff","#40ffff","#80ffff","#bfffff","#033d3d","#347d7e","#609a9f","#96bdc4","#b5d1d7","#e2f1f4"],["#00407f","#0060bf","#0080ff","#40a0ff","#80c0ff","#bfdfff","#1b2c48","#385376","#57708f","#7792ac","#a8bed1","#deebf6"],["#00007f","#0000bf","#0000ff","#4040ff","#8080ff","#bfbfff","#212143","#373e68","#444f75","#585e82","#8687a4","#d2d1e1"],["#40007f","#6000bf","#8000ff","#a040ff","#c080ff","#dfbfff","#302449","#54466f","#655a7f","#726284","#9e8fa9","#dcd1df"],["#7f007f","#bf00bf","#ff00ff","#ff40ff","#ff80ff","#ffbfff","#4a234a","#794a72","#936386","#9d7292","#c0a0b6","#ecdae5"],["#7f003f","#bf005f","#ff007f","#ff409f","#ff80bf","#ffbfdf","#451528","#823857","#a94a76","#bc6f95","#d8a5bb","#f7dde9"],["#800000","#c00000","#ff0000","#ff4040","#ff8080","#ffc0c0","#441415","#82393c","#aa4d4e","#bc6e6e","#d8a3a4","#f8dddd"],["#7f3f00","#bf5f00","#ff7f00","#ff9f40","#ffbf80","#ffdfbf","#482c1b","#855a40","#b27c51","#c49b71","#e1c4a8","#fdeee0"]]})
+</script>
+
+<script type="text/javascript">
+    document.getElementsByClassName('sp-input')[0].style.width='100%';
+</script>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="../style.css" />
+	</head>
+
+	<body>
+
+		<form method="post" id="options_modifs_infos" action="" name="options_modifs_info">
+		 <!-- URL de la lamda dans l'action -->
+		  	<div class="container display-grid justify-align-center">
+			    <h1>Options</h1>
+			    <hr class="hr">
+			    <p class="text-align-center">Modifier vos informations personnelles</p>
+
+			    <div class="text-align-padding-b10"><label for="modif_nom"><b>Modifier votre nom</b></label></div>
+			    <input type="text" id="modif_nom" placeholder="Entrez votre nouveau nom" name="modif_nom">
+
+			    <div class="text-align-padding-b10"><label for="modif_prenom"><b>Modifier votre prénom</b></label></div>
+			    <input type="text" id="modif_prenom" placeholder="Entrez votre prénom" name="modif_prenom">
+
+			    <div class="text-align-padding-b10"><label for="modif_pseudo"><b>Modifier votre pseudo</b></label></div>
+			    <input type="text" id="modif_pseudo" placeholder="Entrez votre nouveau pseudo" name="modif_pseudo" required>
+
+		     <button id="modifs_options_compte" type="button" class="registerbtn" >Modifier les options du compte</button>
+
+		 </div>
+
+		</form>
+
+		<hr class="hr">
+
+		<form method="post" id="options_modifs_mdp" action="" name="options_modifs_mdp">
+		 <!-- URL de la lamda dans l'action -->
+		  	<div class="container display-grid justify-align-center">
+
+		    <p>Modifier votre mot de passe</p>
+
+		    <div class="text-align-padding-b10"><label for="psw"><b>Saisissez votre ancien mot de passe</b></label></div>
+    		<input type="password" id="old_password" placeholder="Entrez votre ancien mot de passe" name="psw" required>
+
+    		<div class="text-align-padding-b10"><label for="psw"><b>Saisissez votre nouveau mot de passe</b></label></div>
+    		<input type="password" id="new_password" placeholder="Entrez votre nouveau mot de passe" name="psw" required>
+
+    		<div class="text-align-padding-b10"><label for="psw-repeat"><b>Confirmation du nouveau mot de passe</b></label></div>
+    		<input type="password" id="new_password_confirm" placeholder="Confirmer votre nouveau mot de passe" name="psw-repeat" required>
+
+		     <button id="modifs_options_mdp" class="registerbtn">Modifier le mot de passe</button>
+
+		 </div>
+
+		</form>
+
+		<hr class="hr">
+
+		<div class=" display-grid justify-align-center">
+			<button onclick="location.href='accueil.html'" type="button" class="registerbtn-blue" id="submit">Retour</button>
+		</div>
+	</body>
